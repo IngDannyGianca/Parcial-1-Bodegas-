@@ -1,0 +1,73 @@
+﻿<Window x:Class="PrototipoLaboratorio.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrototipoLaboratorio"
+        mc:Ignorable="d"
+        Title="Bodegas Agricolas" Height="750" Width="1315" WindowStartupLocation="CenterScreen" Icon="/icono.png" >
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="22*"/>
+            <ColumnDefinition Width="1288*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="/fondo_2.jpg"/>
+        </Grid.Background>
+        <Menu Margin="0,0,0,666" Background="#FFE3E3E3" Grid.ColumnSpan="3">
+            <MenuItem x:Name="Servios_Bodega" Header="    Servicios Bodegas" RenderTransformOrigin="0.528,0.507" Height="50" Click="MenuItem_Click" FontSize="14" Width="0" Background="#FFE3E3E3" >
+                <MenuItem.Icon>
+                    <Image Source="calendar_80px.png" Margin="-4,-14,-25,-14"/>
+                </MenuItem.Icon>
+            </MenuItem>
+            <MenuItem Name="btnCitas" Header="    Bodegas" Width="158" Background="#FFE3E3E3" FontFamily="Century Gothic">
+                <MenuItem.Icon>
+                    <Image Source="/calendar_80px.png" Margin="-4,-15,-25,-14">
+                        <Image.OpacityMask>
+                            <ImageBrush ImageSource="/calendar_80px.png"/>
+                        </Image.OpacityMask>
+                    </Image>
+                </MenuItem.Icon>
+                <MenuItem x:Name="Compras_Proveedores" Header="Compras Proveedores" ItemsSource="{Binding ClickEvent, ElementName=Compras_Proveedores}" Click="btnAgendarCita_Click"/>
+                <MenuItem x:Name="Ventas_Clientes" Header="Ventas Clientes"/>
+                <MenuItem x:Name="Cotizacion" Header="Cotizacion"/>
+            </MenuItem>
+
+        </Menu>
+        <Button x:Name="btnSignOut" Content="" HorizontalAlignment="Left" Margin="1242,1,0,0" VerticalAlignment="Top" Height="31" Click="btnSignOut_Click" Width="29" BorderBrush="{x:Null}" Grid.Column="2" >
+            <Button.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/signout.png"/>
+            </Button.Background>
+        </Button>
+        <Grid x:Name="pnlVentanas" Margin="0,109,-516,-59" HorizontalAlignment="Right" Width="1753" Grid.Column="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1211*"/>
+                <ColumnDefinition Width="542*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <Rectangle HorizontalAlignment="Left" Height="76" Margin="1084,33,0,0" VerticalAlignment="Top" Width="180" RadiusX="19" RadiusY="19" Opacity="0.31" Fill="#FFC6D7DF" Grid.Column="2">
+            <Rectangle.Stroke>
+                <SolidColorBrush Color="#FF015478" Opacity="0.31"/>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <Button x:Name="btnSalir"  HorizontalAlignment="Left" Margin="1126,0,0,0" VerticalAlignment="Top" Height="33" Width="99" RenderTransformOrigin="0.5,0.5" FontFamily="Century Gothic" FontSize="14" Click="btnSalir_Click" Grid.Column="2">
+            <Button.Background>
+                <SolidColorBrush Color="#FFF0F4F4" Opacity="0.2"/>
+            </Button.Background>
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF2FB0C8" Opacity="0.2"/>
+            </Button.BorderBrush>
+            <DockPanel Width="112">
+                <Image Source="/Ventanas/exit_80px.png" Width="41"/>
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center"><Run Language="es-gt" Text="Inicio"/></TextBlock>
+            </DockPanel>
+        </Button>
+
+
+    </Grid>
+
+</Window>
